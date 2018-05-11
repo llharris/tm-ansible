@@ -1,0 +1,31 @@
+---
+# tasks file for sf.concheck
+- name: 
+  sf_check_connections:
+    hostname: "{{ hostname }}"
+    username: "admin"
+    password: "sfdem0!"
+
+- name: Add user
+  sf_account_manager:
+    hostname: "192.168.121.207"
+    username: "admin"
+    password: "sfdem0!"
+    state: present
+    name: lee
+      
+- name: List User Accounts
+  uri:
+    url: https://192.168.121.207/json-rpc/10.1
+    method: POST
+    user: "admin"
+    password: "sfdem0!"
+    body: 
+      method: ListAccounts
+      params:
+        startAccountID: 0
+        limit: 1000
+      id: 1
+    force_basic_auth: yes
+    body_format: json
+    validate_certs: false

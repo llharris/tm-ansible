@@ -1,0 +1,9 @@
+[solidfire]
+localhost
+
+[sf_nodes]
+sf-node1
+sf-node2
+sf-node3
+sf-node4
+sf-node5

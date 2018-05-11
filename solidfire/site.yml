@@ -1,0 +1,5 @@
+---
+- hosts: solidfire
+  connection: local
+  roles:
+    - role: sf.concheck
