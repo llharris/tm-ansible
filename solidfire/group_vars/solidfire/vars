@@ -1,3 +1,3 @@
-hostname: '192.168.121.207'
-username: '{{ vault_username }}'
-password: '{{ vault_password }}'
+sf_hostname: '192.168.121.207'
+sf_username: '{{ vault_sf_username }}'
+sf_password: '{{ vault_sf_password }}'
