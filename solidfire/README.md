@@ -1,7 +1,7 @@
 # Ansible Roles for SolidFire Storage Configuration
 
 Directory layout is as follows...
-
+```
 .
 ├── ansible.cfg
 ├── group_vars
@@ -47,6 +47,7 @@ Directory layout is as follows...
 │       └── vars
 │           └── main.yml
 └── site.yml
+```
 
 ## Ansible.cfg
 
