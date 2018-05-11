@@ -78,4 +78,3 @@ This playbook can be used to call all of the roles in a specifically defined ord
 
 Vault passwords can be passed in at runtime: `ansible-playbook -i hosts site.yml --ask-vault-pass` or by referencing a file which contains the vault password: `ansible-playbook -i hosts site.yml --vault-password-file=myvaultpass.txt`. The file containing the vault password is obviously excluded from this repo.
 
-19 directories, 25 files
