@@ -60,7 +60,7 @@ For example, group_vars/solidfire/vars contains sf_username variable which refer
 
 ## Hosts
 
-Not a hosts file in the traditional sense, really only used for variables as all of the work is done through a 'local' connection as were either making Python SDK calls or using the Ansible URI module so localhost is just acting as a REST client.
+Not a hosts file in the traditional sense, really only used for variables as all of the work is done through a 'local' connection as we're either making Python SDK calls or using the Ansible URI module so localhost is just acting as a REST client.
 
 ## requirements.txt
 
