@@ -3,23 +3,23 @@
 - name: 
   sf_check_connections:
     hostname: "{{ sf_hostname }}"
-    username: "admin"
-    password: "sfdem0!"
+    username: "{{ sf_username }}"
+    password: "{{ sf_password }}"
 
 - name: Add user
   sf_account_manager:
-    hostname: "192.168.121.207"
-    username: "admin"
-    password: "sfdem0!"
+    hostname: "{{ sf_hostname }}"
+    username: "{{ sf_username }}"
+    password: "{{ sf_password }}"
     state: present
     name: lee
       
 - name: List User Accounts
   uri:
-    url: https://192.168.121.207/json-rpc/10.1
+    url: "{{ sf_api_url }}"
     method: POST
-    user: "admin"
-    password: "sfdem0!"
+    user: "{{ sf_username }}"
+    password: "{{ sf_password }}"
     body: 
       method: ListAccounts
       params:

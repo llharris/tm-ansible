@@ -3,3 +3,4 @@
   connection: local
   roles:
     - role: sf.concheck
+    - role: sf.create_cluster
