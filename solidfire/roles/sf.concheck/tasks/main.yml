@@ -2,7 +2,7 @@
 # tasks file for sf.concheck
 - name: 
   sf_check_connections:
-    hostname: "{{ hostname }}"
+    hostname: "{{ sf_hostname }}"
     username: "admin"
     password: "sfdem0!"
 
