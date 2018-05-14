@@ -1,0 +1,11 @@
+{
+  "method": "AddClusterAdmin",
+  "params": {
+    "username": "admin-test",
+    "password": "password123",
+    "attributes": {},
+    "acceptEula": true,
+    "access": ["volumes", "reporting", "read"]
+  },
+  "id": 1
+}

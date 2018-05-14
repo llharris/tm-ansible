@@ -1,6 +1,6 @@
 ---
-# tasks file for sf.config_ntp
-- name: Configure NTP
+# tasks file for sf.main_config
+- name: Configure SolidFire using JSON Body Files
   uri:
     url: "{{ sf_api_url }}"
     method: POST
@@ -12,5 +12,5 @@
     body: "{{ item }}"
   with_file:
     - ntp.json
-  register: sf_json
+    - adminUsers.json
 

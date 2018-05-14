@@ -3,4 +3,4 @@
   connection: local
   roles:
     - role: sf.con_check
-    - role: sf.ntp_config
+    - role: sf.main_config

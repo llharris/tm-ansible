@@ -55,6 +55,10 @@ Directory layout is as follows...
 
 These playbooks have been tested against Element OS 10.1.
 
+## Basic Operation
+
+There are only a small number of SolidFire Ansible modules available, so most interactions use the Ansible URI module which allows us to interact directly with the REST API by POSTing a JSON body. The 
+
 ## Ansible.cfg
 
 Slightly modified ansible.cfg from default. Disabled host key checking and the creation of .retry files, turned on logging.
