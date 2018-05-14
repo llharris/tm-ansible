@@ -1,0 +1,47 @@
+---
+# tasks file for sf.remove_node
+- name: List All Nodes
+  uri:
+    url: "{{ sf_api_url }}"
+    method: POST
+    user: "{{ sf_username }}"
+    password: "{{ sf_password }}"
+    force_basic_auth: yes
+    headers:
+      content-type: 'application/json'
+    body_format: json
+    validate_certs: false
+    body: 
+      method: "ListAllNodes"
+      params:
+      id: 1
+  register: all_nodes
+
+- name: List Node IDs
+  debug:
+    msg: "{{ all_nodes | json_query('json.result.nodes[*].nodeID')}}"
+
+- name: List All Disks on Each Node
+  uri:
+    url: "{{ sf_api_url }}"
+    method: POST
+    user: "{{ sf_username }}"
+    password: "{{ sf_password }}"
+    force_basic_auth: yes
+    headers:
+      content-type: 'application/json'
+    body_format: json
+    validate_certs: false
+    body:
+      method: ListDrives
+      params:
+      id: 1
+  register: all_drives
+
+- name: List Drives
+  debug:
+    msg: "{{ all_drives }}"
+
+- name: List all Node 5 Drives
+  debug:
+    msg: "{{ all_drives | json_query('json.result.drives[?nodeID == `5`]') }}"

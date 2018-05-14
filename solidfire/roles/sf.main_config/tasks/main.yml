@@ -7,10 +7,13 @@
     user: "{{ sf_username }}"
     password: "{{ sf_password }}"
     force_basic_auth: yes
+    headers:
+      content-type: 'application/json'
     body_format: json
     validate_certs: false
     body: "{{ item }}"
   with_file:
     - ntp.json
     - adminUsers.json
-
+    - ldapAuth.json
+    - addLdapGroup.json

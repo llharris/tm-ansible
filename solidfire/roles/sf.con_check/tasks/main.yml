@@ -1,5 +1,5 @@
 ---
-# tasks file for sf.concheck
+# tasks file for sf.con_check
 - name: 
   sf_check_connections:
     hostname: "{{ sf_hostname }}"
