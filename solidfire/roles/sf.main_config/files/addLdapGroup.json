@@ -1,7 +1,7 @@
 {
   "method": "AddLdapClusterAdmin",
   "params": {
-    "username":"cn=mike jones,ou=ptusers,dc=prodtest,dc=solidfire,dc=net",
+    "username":"cn=sam miguel,ou=users,dc=prodtest,dc=solidfire,dc=net",
     "access": ["administrator", "read"
     ]
   },

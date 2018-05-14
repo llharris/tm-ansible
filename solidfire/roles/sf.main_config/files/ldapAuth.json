@@ -5,13 +5,13 @@
     "groupSearchBaseDN": "dc=prodtest,dc=solidfire,dc=net",
     "groupSearchType": "ActiveDirectory",
     "searchBindDN": "SFReadOnly@prodtest.solidfire.net",
-    "searchBindPassword": "zsw@#edcASD12",
+    "searchBindPassword": "password123",
     "sslCert": "",
     "userSearchBaseDN": "dc=prodtest,dc=solidfire,dc=net",
     "userSearchFilter": "(&(objectClass=person)(sAMAccountName=%USERNAME%))",
     "serverURIs":[
-      "ldaps://111.22.333.444",
-      "ldap://555.66.777.888"
+      "ldaps://1.2.3.4",
+      "ldap://4.3.2.1"
     ]
   },
   "id": 1
