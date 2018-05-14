@@ -1,0 +1,7 @@
+---
+# tasks file for sf.concheck
+- name: 
+  sf_check_connections:
+    hostname: "{{ sf_hostname }}"
+    username: "{{ sf_username }}"
+    password: "{{ sf_password }}"

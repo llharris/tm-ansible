@@ -1,0 +1,16 @@
+---
+# tasks file for sf.config_ntp
+- name: Configure NTP
+  uri:
+    url: "{{ sf_api_url }}"
+    method: POST
+    user: "{{ sf_username }}"
+    password: "{{ sf_password }}"
+    force_basic_auth: yes
+    body_format: json
+    validate_certs: false
+    body: "{{ item }}"
+  with_file:
+    - ntp.json
+  register: sf_json
+

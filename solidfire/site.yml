@@ -2,5 +2,5 @@
 - hosts: solidfire
   connection: local
   roles:
-    - role: sf.concheck
-    - role: sf.create_cluster
+    - role: sf.con_check
+    - role: sf.ntp_config

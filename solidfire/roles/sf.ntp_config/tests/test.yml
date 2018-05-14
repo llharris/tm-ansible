@@ -2,4 +2,4 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - sf.create_cluster
+    - sf.config_ntp

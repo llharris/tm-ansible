@@ -3,64 +3,69 @@
 Directory layout is as follows...
 ```
 .
-├── ansible.cfg
-├── group_vars
-│   ├── sf_nodes
-│   └── solidfire
-│       ├── vars
-│       └── vault
-├── hosts
-├── host_vars
-│   ├── sf-node1
-│   │   ├── vars
-│   │   └── vault
-│   ├── sf-node2
-│   │   ├── vars
-│   │   └── vault
-│   ├── sf-node3
-│   │   ├── vars
-│   │   └── vault
-│   ├── sf-node4
-│   │   ├── vars
-│   │   └── vault
-│   └── sf-node5
-│       ├── vars
-│       └── vault
-├── README.md
-├── requirements.txt
-├── roles
-│   └── role.name
-│       ├── defaults
-│       │   └── main.yml
-│       ├── files
-│       ├── handlers
-│       │   └── main.yml
-│       ├── meta
-│       │   └── main.yml
-│       ├── README.md
-│       ├── tasks
-│       │   └── main.yml
-│       ├── templates
-│       ├── tests
-│       │   ├── inventory
-│       │   └── test.yml
-│       └── vars
-│           └── main.yml
-└── site.yml
+└── solidfire
+    ├── ansible.cfg
+    ├── group_vars
+    │   └── solidfire
+    │       ├── vars
+    │       └── vault
+    ├── hosts
+    ├── README.md
+    ├── requirements.txt
+    ├── roles
+    │   ├── sf.con_check
+    │   │   ├── defaults
+    │   │   │   └── main.yml
+    │   │   ├── files
+    │   │   ├── handlers
+    │   │   │   └── main.yml
+    │   │   ├── meta
+    │   │   │   └── main.yml
+    │   │   ├── README.md
+    │   │   ├── tasks
+    │   │   │   └── main.yml
+    │   │   ├── templates
+    │   │   ├── tests
+    │   │   │   ├── inventory
+    │   │   │   └── test.yml
+    │   │   └── vars
+    │   │       └── main.yml
+    │   └── sf.ntp_config
+    │       ├── defaults
+    │       │   └── main.yml
+    │       ├── files
+    │       │   └── ntp.json
+    │       ├── handlers
+    │       │   └── main.yml
+    │       ├── meta
+    │       │   └── main.yml
+    │       ├── README.md
+    │       ├── tasks
+    │       │   └── main.yml
+    │       ├── templates
+    │       ├── tests
+    │       │   ├── inventory
+    │       │   └── test.yml
+    │       └── vars
+    │           └── main.yml
+    └── site.yml
+
 ```
+## Supported Element OS Versions
+
+These playbooks have been tested against Element OS 10.1.
 
 ## Ansible.cfg
 
-Slightly modified ansible.cfg from default. Disabled host key checking and the creation of .retry files.
+Slightly modified ansible.cfg from default. Disabled host key checking and the creation of .retry files, turned on logging.
 
-## Group_Vars / Host_Vars
+## Group_Vars
 
-Setup uses a `vars` file for each group and host which contains all variables. Sensitive variables are abstracted again into a `vault` file, again one per group and/or host.
-For example, group_vars/solidfire/vars contains sf_username variable which references a secret value in the vault file like so: `sf_username: '{{ vault_sf_username }}'`
+group_vars are just used for the initial connection parameters needed to be able to talk to the SolidFire REST API. These include the IP, REST URL, username and password. Sensitive variables are abstracted again into a `vault` file. For example, group_vars/solidfire/vars contains sf_username variable which references a secret value in the vault file like so: `sf_username: '{{ vault_sf_username }}'` You will need to change the `sf_hostname` variable to use these playbooks against different SolidFire systems. 
 
 ## Hosts
 
-Not a hosts file in the traditional sense, really only used for variables as all of the work is done through a 'local' connection as we're either making Python SDK calls or using the Ansible URI module so localhost is just acting as a REST client.
+The inventory file `hosts` just contains a localhost definition for the `[solidfire]` group. As we're interacting with the REST API primarily, everything is being executed on localhost rather than connecting over SSH to perform tasks like we'd expect with a Linux server for example. The inventory file should not need to be changed.
 
 ## requirements.txt
 
