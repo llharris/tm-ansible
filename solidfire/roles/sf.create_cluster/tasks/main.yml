@@ -1,0 +1,17 @@
+---
+# tasks file for sf.create_cluster
+
+- name: Configure SolidFire Cluster using JSON Body File
+  uri:
+    url: "{{ sf_api_url }}"
+    method: POST
+    user: "{{ sf_username }}"
+    password: "{{ sf_password }}"
+    force_basic_auth: yes
+    headers:
+      content-type: 'application/json'
+    body_format: json
+    validate_certs: false
+    body: "{{ item }}"
+  with_file:
+    - createCluster.json

@@ -1,0 +1,21 @@
+{
+  "method": "CreateCluster",
+  "params": {
+    "acceptEula": true,
+    "mvip": "10.0.3.1",
+    "svip": "10.0.4.1",
+    "repCount": 2,
+    "username": "Admin1",
+    "password": "9R7ka4rEPa2uREtE",
+    "attributes": {
+      "clusteraccountnumber": "axdf323456"
+    },
+    "nodes": [
+      "10.0.2.1",
+      "10.0.2.2",
+      "10.0.2.3",
+      "10.0.2.4"
+    ]
+  },
+  "id": 1
+}

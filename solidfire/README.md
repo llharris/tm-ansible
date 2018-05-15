@@ -57,7 +57,24 @@ These playbooks have been tested against Element OS 10.1.
 
 ## Basic Operation
 
-There are only a small number of SolidFire Ansible modules available, so most interactions use the Ansible URI module which allows us to interact directly with the REST API by POSTing a JSON body. The 
+There are only a small number of SolidFire Ansible modules available, so most interactions use the Ansible URI module which allows us to interact directly with the REST API by POSTing a JSON body. Operations which are 'one-shot', in the sense that we know the config straight off and don't need to query to find out information to feed into a task are handled with .json body files inside the role. For example, configuring NTP which is part of the sf.main_config role uses an ntp.json file inside the role which looks like this...
+
+```
+{
+  "method": "SetNtpInfo",
+  "params": {
+    "servers" : [
+      "0.uk.pool.ntp.org",
+      "1.uk.pool.ntp.org",
+      "2.uk.pool.ntp.org"
+    ],
+    "broadcastclient" : false
+  },
+  "id" : 1
+}
+```
+
+To control the configuration it is necessary to edit the relevant .json files to include the settings which are desired.
 
 ## Ansible.cfg
 

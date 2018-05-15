@@ -1,0 +1,55 @@
+---
+# tasks file for sf.add_drives
+- name: List All Disks on Each Node
+  uri:
+    url: "{{ sf_api_url }}"
+    method: POST
+    user: "{{ sf_username }}"
+    password: "{{ sf_password }}"
+    force_basic_auth: yes
+    headers:
+      content-type: 'application/json'
+    body_format: json
+    validate_certs: false
+    body:
+      method: ListDrives
+      params:
+      id: 1
+  register: all_drives
+
+- name: List Drives
+  debug:
+    msg: "{{ all_drives }}"
+
+- name: List all Drive ID
+  debug:
+    msg: "{{ all_drives | json_query('json.result.drives[*].driveID') | sort }}"
+
+#- debug:
+#    msg: "A drive ID: {{ item }}"
+#  with_items: "{{ all_drives | json_query('json.result.drives[*].driveID') }}"
+
+#- name: Add all drives by ID
+#  uri:
+#    url: "{{ sf_api_url }}"
+#    method: POST
+
+#- name: Get Drive Hardware Info by ID
+#  uri:
+#    url: "{{ sf_api_url }}"
+#    method: POST
+#    user: "{{ sf_username }}"
+#    password: "{{ sf_password }}"
+#    force_basic_auth: yes
+#    headers:
+#      content-type: 'application/json'
+#    body_format: json
+#    validate_certs: false
+#    body:
+#      method: GetDriveHardwareInfo
+#      params:
+#        driveID: "{{ item }}"
+#      id: 1
+#  with_items: "{{ all_drives | json_query('json.result.drives[*].driveID') | sort }}"
+#  with_items:
+#    - 1
