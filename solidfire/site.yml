@@ -2,6 +2,6 @@
 - hosts: solidfire
   connection: local
   roles:
-    #- role: sf.con_check
-    #- role: sf.main_config
-    - role: sf.remove_node
+    - role: sf.con_check
+    - role: sf.main_config
+    #- role: sf.remove_node
