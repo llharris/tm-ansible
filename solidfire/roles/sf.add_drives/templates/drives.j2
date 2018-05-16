@@ -1,0 +1,11 @@
+#jinja2:lstrip_blocks: True
+id: 1
+method: AddDrives
+params:
+  drives:
+  {% for drive in all_drives.json.result.drives %}
+  {% if drive.status == 'active' %}
+  - driveID: {{ drive.driveID }}
+    type: block
+  {% endif %}
+  {% endfor %}

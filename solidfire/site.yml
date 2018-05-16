@@ -6,4 +6,4 @@
     - role: sf.con_check
     #- role: sf.main_config
     #- role: sf.remove_node
-    #- role: sf.add_drives
+    - role: sf.add_drives
